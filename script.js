@@ -2,7 +2,7 @@ let gameBoard = Array(9).fill('');
 let currentPlayer = 'X';
 let gameOver = false;
 
-// Function to start the game
+
 function startGame() {
   document.getElementById('welcome-screen').classList.add('hidden');
   document.getElementById('game-board').classList.remove('hidden');
