@@ -3,22 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
+  <title>Tic Tac Toe - Play & Enjoy</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>Welcome to the Game of Tic Tac Toe</h1>
+    <h1>Tic Tac Toe 🎮</h1>
+    <button id="dark-mode-toggle">🌙</button>
   </header>
 
+  <!-- Welcome Screen -->
   <div id="welcome-screen">
     <div class="welcome-container">
-      <p class="welcome-message">Are you ready to challenge your opponent?</p>
-      <button id="play-button" onclick="startGame()">Play Now</button>
+      <h2>Welcome to the Ultimate Tic Tac Toe!</h2>
+      <p class="welcome-message">Are you ready for a fun challenge?</p>
+      <button id="play-button" onclick="startGame()">🎲 Play Now!</button>
     </div>
   </div>
 
+  <!-- Game Area -->
   <div id="game-board" class="hidden">
+    <div class="scoreboard">
+      <span>Player X: <span id="score-x">0</span></span>
+      <span>Player O: <span id="score-o">0</span></span>
+      <span>Draws: <span id="score-draw">0</span></span>
+    </div>
+
     <div class="board-container">
       <div class="grid">
         <div class="cell" id="cell-0" onclick="makeMove(0)"></div>
@@ -31,12 +41,13 @@
         <div class="cell" id="cell-7" onclick="makeMove(7)"></div>
         <div class="cell" id="cell-8" onclick="makeMove(8)"></div>
       </div>
-      <div id="status"></div>
+      <div id="status">Player X's Turn</div>
+      <button id="restart-button" onclick="restartGame()">🔄 Restart Game</button>
     </div>
   </div>
 
   <footer>
-    <p>Enjoy the game and may the best player win!</p>
+    <p>🎉 Enjoy the game & have fun! 🎉</p>
   </footer>
 
   <script src="script.js"></script>

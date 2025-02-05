@@ -1,33 +1,33 @@
 let gameBoard = Array(9).fill('');
 let currentPlayer = 'X';
 let gameOver = false;
+let scores = { X: 0, O: 0, Draw: 0 };
 
-// Function to start the game
 function startGame() {
   document.getElementById('welcome-screen').classList.add('hidden');
   document.getElementById('game-board').classList.remove('hidden');
 }
 
-// Function to make a move
 function makeMove(cellIndex) {
   if (gameOver || gameBoard[cellIndex] !== '') return;
 
   gameBoard[cellIndex] = currentPlayer;
-  const cell = document.getElementById(`cell-${cellIndex}`);
-  cell.innerText = currentPlayer;
-  cell.classList.add(currentPlayer);
+  document.getElementById(`cell-${cellIndex}`).innerText = currentPlayer;
+  document.getElementById(`cell-${cellIndex}`).classList.add(currentPlayer);
 
   if (checkWinner()) {
     document.getElementById('status').innerText = `🎉 Player ${currentPlayer} Wins! 🎉`;
+    scores[currentPlayer]++;
+    updateScores();
     gameOver = true;
-    setTimeout(() => alert(`Congratulations Player ${currentPlayer}!`), 500);
     return;
   }
 
   if (gameBoard.every(cell => cell !== '')) {
     document.getElementById('status').innerText = 'It\'s a Draw! 🤝';
+    scores.Draw++;
+    updateScores();
     gameOver = true;
-    setTimeout(() => alert('It\'s a Draw!'), 500);
     return;
   }
 
@@ -35,7 +35,6 @@ function makeMove(cellIndex) {
   document.getElementById('status').innerText = `Player ${currentPlayer}'s Turn`;
 }
 
-// Function to check the winner
 function checkWinner() {
   const winningCombos = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -48,4 +47,18 @@ function checkWinner() {
     gameBoard[combo[1]] === currentPlayer &&
     gameBoard[combo[2]] === currentPlayer
   );
+}
+
+function restartGame() {
+  gameBoard.fill('');
+  document.querySelectorAll('.cell').forEach(cell => cell.innerText = '');
+  gameOver = false;
+  document.getElementById('status').innerText = `Player X's Turn`;
+  currentPlayer = 'X';
+}
+
+function updateScores() {
+  document.getElementById('score-x').innerText = scores.X;
+  document.getElementById('score-o').innerText = scores.O;
+  document.getElementById('score-draw').innerText = scores.Draw;
 }
