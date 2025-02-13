@@ -10,6 +10,7 @@ function startGame() {
   
 }
 
+
 function makeMove(cellIndex) {
   if (gameOver || gameBoard[cellIndex] !== '') return;
 
