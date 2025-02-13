@@ -3,6 +3,7 @@ let currentPlayer = 'X';
 let gameOver = false;
 let scores = { X: 0, O: 0, Draw: 0 };
 
+
 function startGame() {
   document.getElementById('welcome-screen').classList.add('hidden');
   document.getElementById('game-board').classList.remove('hidden');
