@@ -27,6 +27,7 @@ header {
   cursor: pointer;
   color: white;
   transition: transform 0.3s ease;
+  
 }
 
 #dark-mode-toggle:hover {
