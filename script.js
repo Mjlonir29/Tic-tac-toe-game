@@ -14,6 +14,7 @@ function startGame() {
 
 function makeMove(cellIndex) {
   if (gameOver || gameBoard[cellIndex] !== '') return;
+  
 
   gameBoard[cellIndex] = currentPlayer;
   document.getElementById(`cell-${cellIndex}`).innerText = currentPlayer;
