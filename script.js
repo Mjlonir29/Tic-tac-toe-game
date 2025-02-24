@@ -26,6 +26,7 @@ function makeMove(cellIndex) {
 
   if (checkWinner()) {
     document.getElementById('status').innerText = `🎉 Player ${currentPlayer} Wins! 🎉`;
+    
     scores[currentPlayer]++;
     updateScores();
     gameOver = true;
