@@ -22,6 +22,7 @@ function makeMove(cellIndex) {
   gameBoard[cellIndex] = currentPlayer;
   document.getElementById(`cell-${cellIndex}`).innerText = currentPlayer;
   document.getElementById(`cell-${cellIndex}`).classList.add(currentPlayer);
+  
 
   if (checkWinner()) {
     document.getElementById('status').innerText = `🎉 Player ${currentPlayer} Wins! 🎉`;
